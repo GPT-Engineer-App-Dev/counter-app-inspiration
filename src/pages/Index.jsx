@@ -33,7 +33,7 @@ const Index = () => {
       justifyContent="center"
       alignItems="center"
       height="100vh"
-      bg="gray.800"
+      bg="brand.900"
       color="white"
     >
       <VStack spacing={8}>
@@ -44,24 +44,24 @@ const Index = () => {
           width="250px"
           textAlign="center"
         >
-          <Text fontSize="4xl" fontFamily="monospace">
+          <Text fontSize="4xl" fontFamily="monospace" color="brand.700">
             {new Date(counter * 1000).toISOString().substr(11, 8)}
           </Text>
         </Box>
         <HStack spacing={4}>
-          <Button colorScheme={isRunning ? "red" : "green"} onClick={handleToggle}>
+          <Button colorScheme={isRunning ? "red" : "brand.800"} onClick={handleToggle}>
             {isRunning ? "Stop" : "Start"}
           </Button>
-          <Button colorScheme="yellow" onClick={handleReset}>
+          <Button colorScheme="brand.700" onClick={handleReset}>
             Reset
           </Button>
-          <Button colorScheme="blue" onClick={handleSplit}>
+          <Button colorScheme="brand.600" onClick={handleSplit}>
             Split
           </Button>
         </HStack>
         <VStack spacing={4}>
           {splits.map((split, index) => (
-            <Text key={index} fontSize="2xl" fontFamily="monospace">
+            <Text key={index} fontSize="2xl" fontFamily="monospace" color="brand.500">
               Split {index + 1}: {new Date(split * 1000).toISOString().substr(11, 8)}
             </Text>
           ))}
