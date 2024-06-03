@@ -4,6 +4,7 @@ import { Box, Button, Text, VStack, HStack } from "@chakra-ui/react";
 const Index = () => {
   const [counter, setCounter] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [splits, setSplits] = useState([]);
 
   useEffect(() => {
     let timer;
@@ -20,6 +21,10 @@ const Index = () => {
   const handleReset = () => {
     setIsRunning(false);
     setCounter(0);
+    setSplits([]);
+  };
+  const handleSplit = () => {
+    setSplits([...splits, counter]);
   };
 
   return (
@@ -37,7 +42,7 @@ const Index = () => {
           bg="black"
           borderRadius="md"
           p={4}
-          width="200px"
+          width="250px"
           textAlign="center"
         >
           <Text fontSize="4xl" fontFamily="monospace">
@@ -54,7 +59,17 @@ const Index = () => {
           <Button colorScheme="yellow" onClick={handleReset}>
             Reset
           </Button>
+          <Button colorScheme="blue" onClick={handleSplit}>
+            Split
+          </Button>
         </HStack>
+        <VStack spacing={4}>
+          {splits.map((split, index) => (
+            <Text key={index} fontSize="2xl" fontFamily="monospace">
+              Split {index + 1}: {new Date(split * 1000).toISOString().substr(11, 8)}
+            </Text>
+          ))}
+        </VStack>
       </VStack>
     </Box>
   );
