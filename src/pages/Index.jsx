@@ -49,13 +49,13 @@ const Index = () => {
           </Text>
         </Box>
         <HStack spacing={4}>
-          <Button colorScheme={isRunning ? "red" : "brand.800"} onClick={handleToggle}>
+          <Button colorScheme={isRunning ? "red" : "brand.500"} onClick={handleToggle}>
             {isRunning ? "Stop" : "Start"}
           </Button>
-          <Button colorScheme="brand.700" onClick={handleReset}>
+          <Button colorScheme="brand.800" onClick={handleReset}>
             Reset
           </Button>
-          <Button colorScheme="brand.600" onClick={handleSplit}>
+          <Button colorScheme="brand.700" onClick={handleSplit}>
             Split
           </Button>
         </HStack>
