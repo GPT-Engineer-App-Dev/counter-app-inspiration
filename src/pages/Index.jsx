@@ -16,8 +16,7 @@ const Index = () => {
     return () => clearInterval(timer);
   }, [isRunning]);
 
-  const handleStart = () => setIsRunning(true);
-  const handleStop = () => setIsRunning(false);
+  const handleToggle = () => setIsRunning(!isRunning);
   const handleReset = () => {
     setIsRunning(false);
     setCounter(0);
@@ -50,11 +49,8 @@ const Index = () => {
           </Text>
         </Box>
         <HStack spacing={4}>
-          <Button colorScheme="green" onClick={handleStart}>
-            Start
-          </Button>
-          <Button colorScheme="red" onClick={handleStop}>
-            Stop
+          <Button colorScheme={isRunning ? "red" : "green"} onClick={handleToggle}>
+            {isRunning ? "Stop" : "Start"}
           </Button>
           <Button colorScheme="yellow" onClick={handleReset}>
             Reset
